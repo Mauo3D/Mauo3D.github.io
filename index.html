@@ -1,370 +1,96 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Mauo3D</title>
+.b-email{background:#444}
 
-<style>
-  /* ---------- RESET ---------- */
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    font-family: Inter, Arial, sans-serif;
-    background: linear-gradient(180deg,#121212 0%, #0f0f10 100%);
-    color:#fff;
-    -webkit-font-smoothing:antialiased;
-    line-height:1.45;
-  }
 
-  /* ---------- LAYOUT CENTRAL ---------- */
-  .wrap{
-    max-width:1100px;
-    margin:0 auto;
-    padding:28px 18px 80px;
-  }
-
-  /* ---------- HERO: LOGO + TITULO + BIO ---------- */
-  .hero{
-    display:flex;
-    align-items:center;
-    gap:28px;
-    justify-content:flex-start;
-    margin-bottom:32px;
-    flex-wrap:wrap;
-  }
-
-  .hero-left{
-    width:45%;           /* mantiene proporción con la bio a la derecha */
-    min-width:220px;
-    display:flex;
-    align-items:center;
-    gap:20px;
-  }
-
-  .logo{
-    width:160px;
-    height:160px;
-    border-radius:50%;
-    object-fit:cover;
-    box-shadow:0 8px 30px rgba(0,0,0,0.6), 0 0 20px rgba(112,40,255,0.07);
-    animation:pulse 2.6s infinite ease-in-out;
-    flex-shrink:0;
-  }
-
-  @keyframes pulse{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.06)}
-    100%{transform:scale(1)}
-  }
-
-  .hero-title-block{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-  }
-
-  /* contenedor del titulo animado (letras que llegan random) */
-  .title-animated{
-    font-size:34px;
-    font-weight:700;
-    letter-spacing:1px;
-    display:inline-block;
-    line-height:1;
-    white-space:nowrap;
-  }
-
-  .title-animated span{
-    display:inline-block;
-    opacity:0;
-    transform:translate(0, -20px) scale(0.95);
-    will-change:transform,opacity;
-  }
-
-  /* bio a la derecha */
-  .bio{
-    width:55%;
-    min-width:240px;
-    font-size:1rem;
-    color:#dcdcdc;
-  }
-
-  /* ---------- MODELS SECTION ---------- */
-  .models-title{
-    text-align:left;
-    font-size:20px;
-    margin:18px 0;
-    color:#e8e8e8;
-  }
-
-  .models{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:18px;
-  }
-
-  .card{
-    background:linear-gradient(180deg,#141414,#171717);
-    border:1px solid rgba(255,255,255,0.03);
-    padding:14px;
-    border-radius:14px;
-    box-shadow:0 6px 22px rgba(0,0,0,0.6);
-    display:flex;
-    gap:12px;
-    align-items:center;
-  }
-
-  .card video{
-    width:140px;
-    height:100px;
-    border-radius:10px;
-    object-fit:cover;
-    box-shadow:0 6px 14px rgba(0,0,0,0.6);
-    cursor:pointer;
-    flex-shrink:0;
-  }
-
-  .card .meta{flex:1}
-  .card a{color:#9ecbff;text-decoration:none;font-weight:600}
-  .card p{color:#cfcfcf;font-size:0.95rem;margin-top:6px}
-
-  /* ---------- CONTACT BUBBLES ---------- */
-  .contacts{
-    margin-top:28px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    align-items:flex-start;
-  }
-
-  .bubble{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:12px 18px;
-    border-radius:999px;
-    cursor:pointer;
-    user-select:none;
-    font-weight:600;
-    transition:transform .18s ease, box-shadow .18s ease;
-    box-shadow: 0 8px 26px rgba(0,0,0,0.45);
-  }
-
-  .bubble:active{transform:scale(.98)}
-
-  .b-whatsapp{background:#25D366;color:#022; box-shadow:0 8px 30px rgba(37,211,102,0.12)}
-  .b-tiktok{background:#0b0b0b;border:1px solid rgba(255,255,255,0.04)}
-  .b-cults{background:#6c46ff}
-  .b-email{background:#555}
-
-  /* FIRMER FOOTER */
-  footer{
-    margin-top:46px;
-    text-align:center;
-    opacity:.65;
-    font-size:0.92rem;
-  }
-
-  /* ---------- BURBUJA FLOTANTE (logo pequeño) ---------- */
-  .floating-logo{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    width:88px;
-    height:88px;
-    border-radius:50%;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.6);
-    animation:floatY 4s ease-in-out infinite;
-    cursor:pointer;
-    z-index:60;
-  }
-  .floating-logo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-  @keyframes floatY{
-    0%{transform:translateY(0)}
-    50%{transform:translateY(-8px)}
-    100%{transform:translateY(0)}
-  }
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width:900px){
-    .models{grid-template-columns: 1fr;}
-    .hero-left{width:100%}
-    .bio{width:100%}
-    .hero{justify-content:center}
-  }
-
-  @media (max-width:520px){
-    .logo{width:120px;height:120px}
-    .title-animated{font-size:26px}
-    .floating-logo{width:70px;height:70px}
-  }
-
-  /* small helper for invisible fallback */
-  .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px)}
+footer{
+margin:50px 0 20px;
+text-align:center;
+opacity:.6;
+font-size:.9rem;
+}
 </style>
 </head>
 <body>
-  <div class="wrap">
 
-    <!-- HERO -->
-    <header class="hero" role="banner">
-      <div class="hero-left" style="align-items:center;">
-        <img src="imagenes/logo.jpg" alt="Logo Mauo3D" class="logo" />
 
-        <div class="hero-title-block">
-          <!-- Título animado (las letras se generan con JS) -->
-          <div class="title-animated" id="titleAnimated" aria-hidden="true">Mauo3D</div>
-          <!-- pequeña línea o subtitulo si querés -->
-          <div style="color:#bdbdbd;font-size:.95rem;margin-top:6px">Diseño · Modelado · Impresión 3D</div>
-        </div>
-      </div>
+<header>
+<h1>Mauo3D</h1>
+<nav>
+<a href="#hero">Inicio</a>
+<a href="#modelos">Modelos</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</header>
 
-      <!-- BIO -->
-      <div class="bio" role="main">
-        Hola! Soy <strong>Mauo3D</strong>. Me dedico al diseño y creación de modelos 3D, figuras y esculturas.
-        También hago trabajos a pedido, reparaciones digitales y preparación de modelos para impresión 3D.
-        <div style="height:10px"></div>
-        <strong>Si tenés una idea, la podemos hacer realidad 😊</strong>
-      </div>
-    </header>
 
-    <!-- MODELS TITLE -->
-    <h3 class="models-title">Mis modelos favoritos, espero te gusten 😊</h3>
+<section id="hero" class="hero">
+<img src="imagenes/logo.jpg" class="logo" alt="Logo Mauo3D" />
+<div>
+<div class="title-animated" id="titleAnimated">Mauo3D</div>
+<p class="bio">
+Hola! Soy <strong>Mauo3D</strong>. Me dedico al diseño y creación de modelos 3D, figuras y esculturas. También hago trabajos a pedido, reparaciones digitales y preparación de modelos para impresión 3D.
+<br><br><strong>Si tenés una idea, la podemos hacer realidad 😊</strong>
+</p>
+</div>
+</section>
 
-    <!-- MODELS GRID -->
-    <section class="models" aria-label="Modelos favoritos">
-      <!-- CARD 1 -->
-      <article class="card">
-        <a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank" aria-label="Ver Dr Hot Dog">
-          <video autoplay loop muted playsinline preload="metadata" poster="" onclick="window.open(this.parentElement.href,'_blank')">
-            <source src="imagenes/rickpanchoo.mp4" type="video/mp4">
-            <!-- fallback -->
-          </video>
-        </a>
-        <div class="meta">
-          <a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank">Dr Hot Dog Multiversal</a>
-          <p>Figura con estilo divertido — lista para impresión.</p>
-        </div>
-      </article>
 
-      <!-- CARD 2 -->
-      <article class="card">
-        <a href="https://cults3d.com/:3670527" target="_blank" aria-label="Ver modelo GATTTTTT">
-          <video autoplay loop muted playsinline preload="metadata" poster="" onclick="window.open(this.parentElement.href,'_blank')">
-            <source src="imagenes/GATTTTTT.mp4" type="video/mp4">
-          </video>
-        </a>
-        <div class="meta">
-          <a href="https://cults3d.com/:3670527" target="_blank">GATTTTTT</a>
-          <p>Modelo destacado, miralo en acción.</p>
-        </div>
-      </article>
-    </section>
+<section id="modelos" class="models-section">
+<h2>Mis modelos favoritos — espero te gusten 😊</h2>
 
-    <!-- CONTACT BUBBLES -->
-    <nav class="contacts" aria-label="Contactos">
-      <div class="bubble b-whatsapp" onclick="window.open('https://wa.me/5491157233630','_blank')">
-        💬 WhatsApp — Cotizá tu pieza
-      </div>
-      <div class="bubble b-tiktok" onclick="window.open('https://www.tiktok.com/@mauo3d','_blank')">
-        🎥 TikTok — Mirá mis creaciones
-      </div>
-      <div class="bubble b-cults" onclick="window.open('https://cults3d.com/@Mauo','_blank')">
-        ❤️ Cults3D — Seguí mis modelos
-      </div>
-      <div class="bubble b-email" onclick="location.href='mailto:frankgg381@gmail.com'">
-        ✉️ Email — Consultas personalizadas
-      </div>
-    </nav>
 
-    <footer>
-      © <span id="ano"></span> Mauo3D — Todos los derechos reservados
-    </footer>
-  </div>
+<div class="model-card">
+<video autoplay loop muted playsinline onclick="window.open('https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure','_blank')">
+<source src="imagenes/rickpanchoo.mp4" type="video/mp4">
+</video>
+<a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank">Dr Hot Dog Multiversal</a>
+<p>Figura divertida lista para imprimir.</p>
+</div>
 
-  <!-- floating small logo -->
-  <div class="floating-logo" title="Contacto WhatsApp" onclick="window.open('https://wa.me/5491157233630','_blank')" aria-hidden="true">
-    <img src="imagenes/logo.jpg" alt="">
-  </div>
+
+<div class="model-card">
+<video autoplay loop muted playsinline onclick="window.open('https://cults3d.com/:3670527','_blank')">
+<source src="imagenes/GATTTTTT.mp4" type="video/mp4">
+</video>
+<a href="https://cults3d.com/:3670527" target="_blank">GATTTTTT</a>
+<p>Modelo destacado — miralo en acción.</p>
+</div>
+</section>
+
+
+<section id="contacto" class="contacts">
+<div class="bubble b-whatsapp" onclick="window.open('https://wa.me/5491157233630','_blank')">💬 WhatsApp — Consultas rápidas</div>
+<div class="bubble b-tiktok" onclick="window.open('https://www.tiktok.com/@mauo3d','_blank')">🎥 TikTok — Creaciones</div>
+<div class="bubble b-cults" onclick="window.open('https://cults3d.com/@Mauo','_blank')">❤️ Cults3D — Mis modelos</div>
+<div class="bubble b-email" onclick="location.href='mailto:frankgg381@gmail.com'">✉️ Email — Consultas personalizadas</div>
+</section>
+
+
+<footer>
+© <span id="year"></span> Mauo3D
+</footer>
+
 
 <script>
-  // año en footer
-  document.getElementById('ano').textContent = new Date().getFullYear();
+document.getElementById("year").textContent=new Date().getFullYear();
 
-  /* ---------- TÍTULO: generar letra por letra desde posiciones random ---------- */
-  (function(){
-    const text = "Mauo3D";
-    const container = document.getElementById('titleAnimated');
-    container.textContent = ''; // limpia
 
-    // Crear spans con animación individual (pos random inicial)
-    const durationBase = 700; //ms
-    text.split('').forEach((char, i) => {
-      const span = document.createElement('span');
-      span.textContent = char;
-      // random initial transform offset (x,y) y rotation
-      const rx = Math.floor(Math.random()*240 - 120); // -120..120
-      const ry = Math.floor(Math.random()*160 - 80);  // -80..80
-      const rrot = Math.floor(Math.random()*60 - 30);
-      span.style.transform = `translate(${rx}px, ${ry}px) rotate(${rrot}deg) scale(.9)`;
-      span.style.opacity = 0;
-      span.style.transition = `transform ${durationBase/1000 + i*0.06}s cubic-bezier(.2,.9,.3,1), opacity .5s ease ${i*0.08}s`;
-      container.appendChild(span);
-
-      // force reflow then bring to position
-      setTimeout(()=> {
-        span.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
-        span.style.opacity = 1;
-      }, 100 + i*60);
-    });
-
-    // aplicar pulso al bloque (ya en CSS) — además añadir un pequeño latido extra en loop
-    setInterval(()=> {
-      container.animate([
-        { transform: 'scale(1)' },
-        { transform: 'scale(1.06)' },
-        { transform: 'scale(1)' }
-      ], { duration: 2000, easing:'ease-in-out' });
-    }, 2600);
-  })();
-
-  /* ---------- Accessibility: pausa animaciones si reduce-motion ---------- */
-  (function(){
-    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(prefersReduced){
-      // remover animaciones forzadas
-      document.querySelectorAll('.logo, .floating-logo, .title-animated').forEach(el=>{
-        el.style.animation = 'none';
-      });
-      document.querySelectorAll('#titleAnimated span').forEach(span=>{
-        span.style.transition = 'none';
-        span.style.transform = 'none';
-        span.style.opacity = 1;
-      });
-    }
-  })();
-
-  /* ---------- Small safety: if videos missing, show fallback message ---------- */
-  window.addEventListener('load', ()=>{
-    document.querySelectorAll('video').forEach(v=>{
-      // if video fails to load, replace with a poster block
-      v.addEventListener('error', ()=>{
-        const p = document.createElement('div');
-        p.style.width = '140px';
-        p.style.height = '100px';
-        p.style.borderRadius = '10px';
-        p.style.background = 'linear-gradient(180deg,#2a2a2a,#1a1a1a)';
-        p.style.display = 'flex';
-        p.style.alignItems = 'center';
-        p.style.justifyContent = 'center';
-        p.style.color = '#aaa';
-        p.style.fontSize = '12px';
-        p.textContent = 'Video no disponible';
-        v.parentElement.replaceChild(p, v);
-      });
-    });
-  });
+// animación titulo
+const text="Mauo3D";
+const container=document.getElementById("titleAnimated");
+container.textContent="";
+text.split("").forEach((c,i)=>{
+const s=document.createElement("span");
+s.textContent=c;
+s.style.transition=`all ${0.4+i*0.1}s ease`;
+container.appendChild(s);
+setTimeout(()=>{
+s.style.opacity=1;
+s.style.transform="translateY(0)";
+},100+i*120);
+});
 </script>
+
+
 </body>
 </html>
