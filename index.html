@@ -1,76 +1,407 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mauo3D</title>
-    <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mauo3D</title>
+
+<style>
+  /* ---------- RESET ---------- */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    background:#0d0d0d; /* fondo oscuro profesional */
+    color:#eef0f2;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+
+  /* CENTRADO / CONTENEDOR */
+  .site{
+    max-width:1100px;
+    margin:0 auto;
+    padding:28px 20px 80px;
+  }
+
+  /* HEADER HERO */
+  .hero{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    justify-content:flex-start;
+    margin-top:18px;
+    flex-wrap:wrap;
+    padding:18px 0 8px;
+  }
+
+  .hero-left{
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+
+  .logo{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6), 0 0 24px rgba(112,40,255,0.035);
+    animation:pulse 3000ms infinite ease-in-out;
+    flex-shrink:0;
+  }
+
+  @keyframes pulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.04)}
+    100%{transform:scale(1)}
+  }
+
+  .hero-title {
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .title-animated {
+    font-size:32px;
+    font-weight:700;
+    color:#f3f5f7;
+    letter-spacing:0.6px;
+    display:inline-block;
+    line-height:1;
+  }
+
+  .title-animated span{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(12px) rotate(6deg);
+  }
+
+  .subtitle {
+    color:#bfc6ca;
+    font-size:0.95rem;
+  }
+
+  /* layout: bio to the right */
+  .hero-bio{
+    margin-left:8px;
+    max-width:620px;
+    color:#d6d9db;
+    font-size:1rem;
+  }
+  .hero-bio strong{color:#fff}
+
+  /* SEPARADOR */
+  .divider{height:1px;background:linear-gradient(90deg,#1a1a1a,#222);margin:18px 0 28px;border-radius:4px}
+
+  /* MODELS SECTION - vertical stacked */
+  .models-section{
+    padding:0 2px;
+  }
+
+  .models-title{
+    font-size:20px;
+    color:#e6e9ea;
+    margin-bottom:16px;
+    font-weight:600;
+  }
+
+  .model-card{
+    background:linear-gradient(180deg,#0f0f10,#141415);
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:26px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    opacity:0;
+    transform:translateY(22px);
+    transition:all .6s cubic-bezier(.2,.9,.3,1);
+  }
+  .model-card.in-view{opacity:1;transform:none}
+
+  .model-video{
+    width:100%;
+    max-width:560px;
+    height:auto;
+    border-radius:12px;
+    box-shadow:0 14px 40px rgba(7,7,9,0.6), inset 0 0 60px rgba(112,40,255,0.02);
+    cursor:pointer;
+    display:block;
+  }
+
+  .model-meta{
+    width:100%;
+    max-width:560px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+  }
+
+  .model-meta .title{
+    color:#dfe9f5;
+    font-weight:700;
+    font-size:1.05rem;
+  }
+  .model-meta .desc{
+    color:#bfc6ca;
+    font-size:0.92rem;
+  }
+
+  /* CONTACT CHIPS: icon bubble + legend outside */
+  .contacts{
+    margin-top:28px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:center;
+  }
+
+  .contact-row{
+    width:100%;
+    max-width:720px;
+    display:flex;
+    gap:20px;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .contact-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:transparent;
+  }
+
+  .chip{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.45);
+    transition:transform .18s ease, box-shadow .18s ease;
+    flex-shrink:0;
+  }
+  .chip:active{transform:scale(.98)}
+
+  /* colores sobrios */
+  .chip.tiktok{ background:#2b2b2b; color:#dcdfe1; border:1px solid rgba(255,255,255,0.03) }
+  .chip.cults{ background:#6c46ff; color:white }
+  .chip.whatsapp{ background:#25D366; color:#022 }
+  .chip.gmail{ background:#d94f4f; color:white }
+
+  .chip svg{width:20px;height:20px}
+
+  .contact-label{
+    color:#d6d9db;
+    font-size:0.95rem;
+    font-weight:600;
+    letter-spacing:0.2px;
+  }
+
+  /* footer */
+  footer{
+    margin-top:42px;
+    text-align:center;
+    color:#aeb6ba;
+    font-size:0.92rem;
+    opacity:0.85;
+  }
+
+  /* responsive */
+  @media (max-width:920px){
+    .hero{justify-content:center;text-align:center}
+    .hero-bio{max-width:100%;margin-left:0}
+    .hero-left{justify-content:center}
+    .contact-row{justify-content:center}
+  }
+
+  @media (max-width:600px){
+    .logo{width:110px;height:110px}
+    .title-animated{font-size:22px}
+    .model-video{max-width:95%}
+    .chip{width:40px;height:40px}
+    .contact-label{font-size:0.9rem}
+  }
+</style>
 </head>
 <body>
-
-    <!-- HERO PRINCIPAL -->
-    <section id="hero">
-        <div class="hero-left">
-            <img src="imagenes/logo.jpg" class="logo" alt="Logo Mauo3D" />
-            <h1 class="titulo-animado">Mauo3D</h1>
+  <div class="site">
+    <!-- HERO -->
+    <section class="hero" aria-label="Presentación">
+      <div class="hero-left">
+        <img src="imagenes/logo.jpg" alt="Logo Mauo3D" class="logo" />
+        <div class="hero-title">
+          <div class="title-animated" id="titleAnimated">Mauo3D</div>
+          <div class="subtitle">Diseño · Modelado · Impresión 3D</div>
         </div>
+      </div>
 
-        <div class="hero-right">
-            <p class="bio">
-                Hola! Soy <strong>Mauo3D</strong>. Me dedico al diseño y creación de modelos 3D, 
-                figuras y esculturas. También hago trabajos a pedido, reparaciones digitales 
-                y preparación de modelos para impresión 3D.  
-                <br /><br />
-                <strong>Si tenés una idea, la podemos hacer realidad 😊</strong>
-            </p>
-        </div>
+      <div class="hero-bio">
+        <p>Hola! Soy <strong>Mauo3D</strong>. Me dedico al diseño y creación de modelos 3D, figuras y esculturas. También hago trabajos a pedido, reparaciones digitales y preparación de modelos para impresión 3D.</p>
+        <p style="margin-top:10px"><strong>Si tenés una idea, la podemos hacer realidad 😊</strong></p>
+      </div>
     </section>
 
-    <!-- TÍTULO DE MODELOS -->
-    <h2 class="titulo-modelos">Mis modelos favoritos — ¡Espero te gusten!</h2>
+    <div class="divider"></div>
 
-    <!-- MODELOS -->
-    <section id="modelos">
+    <!-- MODELS -->
+    <section class="models-section" id="modelos" aria-label="Modelos favoritos">
+      <div class="models-title">Mis modelos favoritos — espero te gusten 😊</div>
 
-        <div class="modelo">
-            <a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank">
-                <video autoplay loop muted playsinline>
-                    <source src="imagenes/rickpanchoo.mp4" type="video/mp4">
-                </video>
-            </a>
+      <article class="model-card">
+        <a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank" aria-label="Dr Hot Dog">
+          <video class="model-video" autoplay loop muted playsinline preload="metadata" onclick="window.open(this.parentElement.href,'_blank')">
+            <source src="imagenes/rickpanchoo.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+          </video>
+        </a>
+
+        <div class="model-meta">
+          <div>
+            <div class="title">Dr Hot Dog Multiversal</div>
+            <div class="desc">Figura con estilo divertido — lista para impresión.</div>
+          </div>
+          <div style="opacity:.6;font-size:.9rem">Click para ver en Cults3D</div>
         </div>
+      </article>
 
-        <div class="modelo">
-            <a href="https://cults3d.com/:3670527" target="_blank">
-                <video autoplay loop muted playsinline>
-                    <source src="imagenes/GATTTTTT.mp4" type="video/mp4">
-                </video>
-            </a>
+      <article class="model-card">
+        <a href="https://cults3d.com/:3670527" target="_blank" aria-label="GATTTTTT">
+          <video class="model-video" autoplay loop muted playsinline preload="metadata" onclick="window.open(this.parentElement.href,'_blank')">
+            <source src="imagenes/GATTTTTT.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+          </video>
+        </a>
+
+        <div class="model-meta">
+          <div>
+            <div class="title">GATTTTTT</div>
+            <div class="desc">Modelo destacado — miralo en acción.</div>
+          </div>
+          <div style="opacity:.6;font-size:.9rem">Click para ver en Cults3D</div>
         </div>
-
+      </article>
     </section>
 
-    <!-- CONTACTO BURBUJAS -->
-    <section id="contacto">
-        <h2>Contactos</h2>
+    <!-- CONTACTS -->
+    <section class="contacts" id="contacto" aria-label="Contacto">
+      <div class="contact-row">
+        <!-- TikTok -->
+        <div class="contact-item">
+          <a class="chip tiktok" href="https://www.tiktok.com/@mauo3d" target="_blank" aria-label="TikTok">
+            <!-- simple music note icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 2v11.55A4 4 0 1 0 11 17V7h4V2H9z"/></svg>
+          </a>
+          <div class="contact-label">TikTok</div>
+        </div>
 
-        <a class="burbuja whatsapp" href="https://wa.me/5491157233630" target="_blank">
-            WhatsApp<br/>Cotizá tu pieza 3D • Hablemos • Consultas
-        </a>
+        <!-- Cults -->
+        <div class="contact-item">
+          <a class="chip cults" href="https://cults3d.com/@Mauo" target="_blank" aria-label="Cults3D">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zm0 7l-8 4.1V20l8 4 8-4v-6.9L12 9z"/></svg>
+          </a>
+          <div class="contact-label">Cults3D</div>
+        </div>
 
-        <a class="burbuja tiktok" href="https://www.tiktok.com/" target="_blank">
-            TikTok<br/>Mirá mis creaciones en acción
-        </a>
+        <!-- WhatsApp -->
+        <div class="contact-item">
+          <a class="chip whatsapp" href="https://wa.me/5491157233630" target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 1 0 22 12c0 1.9-.5 3.7-1.5 5.2L22 22l-4-1.2A11 11 0 1 0 20.5 3.5zM12 5.8a6.2 6.2 0 0 1 6.2 6.2c0 1.1-.3 2.2-1 3.1l-.2.3-.5.5-1.1.9c-.6.5-1.2.7-2.1.7-.5 0-1-.1-1.6-.3A6.1 6.1 0 0 1 8 14.1c0-3.2 2.6-6 4.8-6.3V5.8z"/></svg>
+          </a>
+          <div class="contact-label">WhatsApp</div>
+        </div>
 
-        <a class="burbuja cults" href="https://cults3d.com/@Mauo" target="_blank">
-            Cults3D<br/>Explorá mis modelos favoritos
-        </a>
+        <!-- Gmail -->
+        <div class="contact-item">
+          <a class="chip gmail" href="mailto:frankgg381@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <div class="contact-label">Email</div>
+        </div>
 
-        <a class="burbuja mail" href="mailto:frankgg381@gmail.com">
-            Email<br/>Consultas personalizadas
-        </a>
+      </div>
     </section>
 
-    <script src="script.js"></script>
+    <footer>
+      © <span id="year"></span> Mauo3D — Todos los derechos reservados
+    </footer>
+  </div>
+
+  <!-- floating small logo (optional) -->
+  <div class="floating-logo" style="position:fixed;right:18px;bottom:18px;width:74px;height:74px;border-radius:50%;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.6);cursor:pointer;display:none" onclick="window.open('https://wa.me/5491157233630','_blank')">
+    <img src="imagenes/logo.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%">
+  </div>
+
+<script>
+  // año footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* TITULO: animación letra por letra desde posiciones aleatorias */
+  (function(){
+    const text = "Mauo3D";
+    const container = document.getElementById('titleAnimated');
+    container.textContent = '';
+    text.split('').forEach((ch,i)=>{
+      const span = document.createElement('span');
+      span.textContent = ch;
+      // random start offset
+      const rx = Math.floor(Math.random()*220 - 110);
+      const ry = Math.floor(Math.random()*140 - 70);
+      const rrot = Math.floor(Math.random()*30 - 15);
+      span.style.transform = `translate(${rx}px, ${ry}px) rotate(${rrot}deg) scale(.95)`;
+      span.style.opacity = 0;
+      span.style.transition = `transform ${0.6 + i*0.06}s cubic-bezier(.2,.9,.3,1), opacity .45s ease ${0.06*i}s`;
+      container.appendChild(span);
+      // bring into place
+      setTimeout(()=> {
+        span.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+        span.style.opacity = 1;
+      }, 80 + i*80);
+    });
+    // gentle pulse for the whole title
+    setInterval(()=> {
+      container.animate([{transform:'scale(1)'},{transform:'scale(1.04)'},{transform:'scale(1)'}],{duration:2100,iterations:1});
+    }, 2600);
+  })();
+
+  /* Scroll reveal for model cards */
+  (function(){
+    const cards = document.querySelectorAll('.model-card');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('in-view');
+      });
+    }, {threshold:.18});
+    cards.forEach(c=>obs.observe(c));
+  })();
+
+  /* Video click fallback in case autoplay blocked: play on user gesture */
+  document.querySelectorAll('video').forEach(v=>{
+    v.addEventListener('click', ()=> {
+      if(v.paused) v.play();
+    });
+  });
+
+  /* reduce motion preference */
+  (function(){
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduced){
+      document.querySelectorAll('.logo').forEach(e=>e.style.animation='none');
+      document.querySelectorAll('.title-animated span').forEach(s=>{
+        s.style.transition='none';
+        s.style.transform='none';
+        s.style.opacity=1;
+      });
+    }
+  })();
+</script>
 </body>
 </html>
