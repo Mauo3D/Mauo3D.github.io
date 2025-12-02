@@ -1,96 +1,180 @@
 <!DOCTYPE html>
-.b-email{background:#444}
-
-
-footer{
-margin:50px 0 20px;
-text-align:center;
-opacity:.6;
-font-size:.9rem;
-}
-</style>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mauo3D</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+    <!-- HERO PRINCIPAL -->
+    <section id="hero">
+        <div class="hero-left">
+            <img src="imagenes/logo.jpg" class="logo" alt="Logo Mauo3D" />
+            <h1 class="titulo-animado">Mauo3D</h1>
+        </div>
 
-<header>
-<h1>Mauo3D</h1>
-<nav>
-<a href="#hero">Inicio</a>
-<a href="#modelos">Modelos</a>
-<a href="#contacto">Contacto</a>
-</nav>
-</header>
+        <div class="hero-right">
+            <p class="bio">
+                Hola! Soy <strong>Mauo3D</strong>. Me dedico al diseño y creación de modelos 3D, 
+                figuras y esculturas. También hago trabajos a pedido, reparaciones digitales 
+                y preparación de modelos para impresión 3D.  
+                <br /><br />
+                <strong>Si tenés una idea, la podemos hacer realidad 😊</strong>
+            </p>
+        </div>
+    </section>
 
+    <!-- TÍTULO DE MODELOS -->
+    <h2 class="titulo-modelos">Mis modelos favoritos — ¡Espero te gusten!</h2>
 
-<section id="hero" class="hero">
-<img src="imagenes/logo.jpg" class="logo" alt="Logo Mauo3D" />
-<div>
-<div class="title-animated" id="titleAnimated">Mauo3D</div>
-<p class="bio">
-Hola! Soy <strong>Mauo3D</strong>. Me dedico al diseño y creación de modelos 3D, figuras y esculturas. También hago trabajos a pedido, reparaciones digitales y preparación de modelos para impresión 3D.
-<br><br><strong>Si tenés una idea, la podemos hacer realidad 😊</strong>
-</p>
-</div>
-</section>
+    <!-- MODELOS -->
+    <section id="modelos">
 
+        <div class="modelo">
+            <a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank">
+                <video autoplay loop muted playsinline>
+                    <source src="imagenes/rickpanchoo.mp4" type="video/mp4">
+                </video>
+            </a>
+        </div>
 
-<section id="modelos" class="models-section">
-<h2>Mis modelos favoritos — espero te gusten 😊</h2>
+        <div class="modelo">
+            <a href="https://cults3d.com/:3670527" target="_blank">
+                <video autoplay loop muted playsinline>
+                    <source src="imagenes/GATTTTTT.mp4" type="video/mp4">
+                </video>
+            </a>
+        </div>
 
+    </section>
 
-<div class="model-card">
-<video autoplay loop muted playsinline onclick="window.open('https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure','_blank')">
-<source src="imagenes/rickpanchoo.mp4" type="video/mp4">
-</video>
-<a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank">Dr Hot Dog Multiversal</a>
-<p>Figura divertida lista para imprimir.</p>
-</div>
+    <!-- CONTACTO BURBUJAS -->
+    <section id="contacto">
+        <h2>Contactos</h2>
 
+        <a class="burbuja whatsapp" href="https://wa.me/5491157233630" target="_blank">
+            WhatsApp<br/>Cotizá tu pieza 3D • Hablemos • Consultas
+        </a>
 
-<div class="model-card">
-<video autoplay loop muted playsinline onclick="window.open('https://cults3d.com/:3670527','_blank')">
-<source src="imagenes/GATTTTTT.mp4" type="video/mp4">
-</video>
-<a href="https://cults3d.com/:3670527" target="_blank">GATTTTTT</a>
-<p>Modelo destacado — miralo en acción.</p>
-</div>
-</section>
+        <a class="burbuja tiktok" href="https://www.tiktok.com/" target="_blank">
+            TikTok<br/>Mirá mis creaciones en acción
+        </a>
 
+        <a class="burbuja cults" href="https://cults3d.com/@Mauo" target="_blank">
+            Cults3D<br/>Explorá mis modelos favoritos
+        </a>
 
-<section id="contacto" class="contacts">
-<div class="bubble b-whatsapp" onclick="window.open('https://wa.me/5491157233630','_blank')">💬 WhatsApp — Consultas rápidas</div>
-<div class="bubble b-tiktok" onclick="window.open('https://www.tiktok.com/@mauo3d','_blank')">🎥 TikTok — Creaciones</div>
-<div class="bubble b-cults" onclick="window.open('https://cults3d.com/@Mauo','_blank')">❤️ Cults3D — Mis modelos</div>
-<div class="bubble b-email" onclick="location.href='mailto:frankgg381@gmail.com'">✉️ Email — Consultas personalizadas</div>
-</section>
+        <a class="burbuja mail" href="mailto:frankgg381@gmail.com">
+            Email<br/>Consultas personalizadas
+        </a>
+    </section>
 
-
-<footer>
-© <span id="year"></span> Mauo3D
-</footer>
-
-
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
-
-
-// animación titulo
-const text="Mauo3D";
-const container=document.getElementById("titleAnimated");
-container.textContent="";
-text.split("").forEach((c,i)=>{
-const s=document.createElement("span");
-s.textContent=c;
-s.style.transition=`all ${0.4+i*0.1}s ease`;
-container.appendChild(s);
-setTimeout(()=>{
-s.style.opacity=1;
-s.style.transform="translateY(0)";
-},100+i*120);
-});
-</script>
-
-
+    <script src="script.js"></script>
 </body>
 </html>
+✅ 2) NUEVO style.css (copiar completo y pegar)
+css
+Copiar código
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0e0e0e;
+    color: #fff;
+}
+
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* LOGO */
+.logo {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* TITULO ANIMADO */
+.titulo-animado {
+    font-size: 2.8rem;
+    font-weight: bold;
+    animation: pulsoSuave 2.5s infinite ease-in-out;
+    text-align: center;
+}
+
+/* BIO */
+.bio {
+    max-width: 420px;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+/* TÍTULO MODELOS */
+.titulo-modelos {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 40px;
+}
+
+/* MODELOS */
+#modelos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+}
+
+video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+}
+
+/* BURBUJAS CONTACTO */
+#contacto {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.burbuja {
+    display: block;
+    background: #333;
+    padding: 20px;
+    margin: 15px auto;
+    width: 80%;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.burbuja:hover {
+    transform: scale(1.05);
+}
+
+.whatsapp { background: #25D366; }
+.tiktok { background: #ff0050; }
+.cults { background: #3a86ff; }
+.mail { background: #777; }
+
+/* ANIMACIONES */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pulsoSuave {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.04); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
