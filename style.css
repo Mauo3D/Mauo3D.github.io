@@ -1,66 +1,101 @@
-/* CONTENEDOR PRINCIPAL */
-.hero-section {
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0e0e0e;
+    color: #fff;
+}
+
+#hero {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    align-items: center;
+    padding: 50px 20px;
     gap: 40px;
     flex-wrap: wrap;
 }
 
-/* LOGO - BURBUJA FLOTANTE */
-.hero-logo {
-    width: 45vw;                   /* un poco más de la mitad */
-    max-width: 300px;              /* límite para que no sea gigante */
-    aspect-ratio: 1/1;
+/* LOGO */
+.logo {
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-    object-fit: cover;
-    animation: pulse 3s infinite ease-in-out;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+    animation: pulse 2.5s infinite ease-in-out;
 }
 
-/* ANIMACIÓN DE BURBUJA */
+/* TITULO ANIMADO */
+.titulo-animado {
+    font-size: 2.8rem;
+    font-weight: bold;
+    animation: pulsoSuave 2.5s infinite ease-in-out;
+    text-align: center;
+}
+
+/* BIO */
+.bio {
+    max-width: 420px;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+/* TÍTULO MODELOS */
+.titulo-modelos {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 40px;
+}
+
+/* MODELOS */
+#modelos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+}
+
+video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+}
+
+/* BURBUJAS CONTACTO */
+#contacto {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.burbuja {
+    display: block;
+    background: #333;
+    padding: 20px;
+    margin: 15px auto;
+    width: 80%;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.burbuja:hover {
+    transform: scale(1.05);
+}
+
+.whatsapp { background: #25D366; }
+.tiktok { background: #ff0050; }
+.cults { background: #3a86ff; }
+.mail { background: #777; }
+
+/* ANIMACIONES */
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.06); }
+    50% { transform: scale(1.08); }
     100% { transform: scale(1); }
 }
 
-/* BIOGRAFÍA */
-.hero-text {
-    max-width: 400px;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    text-align: left;
+@keyframes pulsoSuave {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.04); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
 }
-
-/* RESPONSIVE PARA CELULAR */
-@media (max-width: 768px) {
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-logo {
-        width: 55vw;
-        max-width: 220px;
-    }
-
-    .hero-text {
-        text-align: center;
-        font-size: 1rem;
-    }
-}
-✅ Y tu HTML debería quedar así:
-html
-Copiar código
-<section class="hero-section">
-    <img src="imagenes/logo.jpg" alt="Logo Mauo3D" class="hero-logo">
-
-    <div class="hero-text">
-        Hola! Soy <b>Mauo3D</b>.  
-        Me dedico al diseño y creación de modelos 3D, figuras y esculturas.  
-        También hago trabajos a pedido, reparaciones digitales y preparación de modelos para impresión 3D.  
-        Si tenés una idea, la podemos hacer realidad 😊
-    </div>
-</section>
