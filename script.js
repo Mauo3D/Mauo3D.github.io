@@ -1,29 +1,26 @@
-// Detectar scroll para ocultar y mostrar burbuja
-const burbuja = document.querySelector(".burbuja");
+// Efecto de letras aleatorias en el título
+const titulo = document.querySelector(".titulo-animado");
+const textoOriginal = titulo.textContent;
+const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
+let intervalo = null;
 
-    if (scrollY > 300) {
-        burbuja.classList.add("oculta");
-    } else {
-        burbuja.classList.remove("oculta");
-    }
-});
+function animarTitulo() {
+    let i = 0;
+    clearInterval(intervalo);
 
-// BOTONES (Modificar links)
-document.getElementById("btnCults").addEventListener("click", () => {
-    window.open("TU_LINK_CULTS_AQUI", "_blank");
-});
+    intervalo = setInterval(() => {
+        titulo.textContent = textoOriginal
+            .split("")
+            .map((letra, index) => {
+                if (index < i) return textoOriginal[index];
+                return letras[Math.floor(Math.random() * letras.length)];
+            })
+            .join("");
 
-document.getElementById("btnTikTok").addEventListener("click", () => {
-    window.open("TU_LINK_TIKTOK_AQUI", "_blank");
-});
+        if (i >= textoOriginal.length) clearInterval(intervalo);
+        i += 1/3;
+    }, 30);
+}
 
-document.getElementById("btnWhatsApp").addEventListener("click", () => {
-    window.open("https://wa.me/549TU_NUMERO", "_blank");
-});
-
-document.getElementById("burbuja").addEventListener("click", () => {
-    window.open("https://wa.me/549TU_NUMERO", "_blank");
-});
+animarTitulo();
