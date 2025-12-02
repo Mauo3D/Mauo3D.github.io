@@ -1,72 +1,115 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mauo3D</title>
-<link rel="stylesheet" href="style.css" />
+width:110px;
+height:110px;
+border-radius:12px;
+object-fit:cover;
+cursor:pointer;
+}
+
+
+.model-card a {
+color:#9bb8ff;
+font-weight:600;
+text-decoration:none;
+}
+
+
+/* CONTACTOS BURBUJAS */
+.contact-container {
+margin-top:60px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:18px;
+margin-bottom:70px;
+}
+
+
+.bubble {
+background:#7028ff;
+padding:18px 25px;
+border-radius:50px;
+font-size:1.1rem;
+cursor:pointer;
+box-shadow:0 0 15px rgba(112,40,255,0.4);
+transition:0.3s;
+}
+
+
+.bubble:hover {
+transform:scale(1.08);
+box-shadow:0 0 22px rgba(112,40,255,0.6);
+}
+
+
+.tiktok { background:#ff2cff; }
+.cults { background:#0099ff; }
+.email { background:#00c471; }
+
+
+footer {
+text-align:center;
+opacity:0.6;
+margin-bottom:20px;
+}
+
+
+@media (max-width:768px) {
+.hero { text-align:center; }
+.bio { text-align:center; }
+.model-card { flex-direction:column; }
+.model-card video { width:100%; height:auto; }
+}
+</style>
 </head>
 <body>
 
 
-<!-- CONTENEDOR PRINCIPAL: LOGO A LA IZQUIERDA + BIO A LA DERECHA -->
 <section class="hero">
-<div class="hero-logo">
-<img src="imagenes/logo.jpg" alt="Logo Mauo3D" />
-</div>
+<img src="imagenes/logo.jpg" class="hero-logo" alt="Mauo3D Logo">
 
 
-<div class="hero-bio">
-<h1>Mauo3D</h1>
-<p>
-Hola! Soy <strong>Mauo3D</strong>. Me dedico al diseño y creación de modelos 3D,
-figuras y esculturas. También hago trabajos a pedido, reparaciones digitales
-y preparación de modelos para impresión 3D.
-<br><br>
-<strong>Si tenés una idea, la podemos hacer realidad 😊</strong>
-</p>
+<div class="bio">
+<b>Hola! Soy Mauo3D.</b><br><br>
+Me dedico al diseño y creación de modelos 3D, figuras y esculturas.
+También hago trabajos a pedido, reparaciones digitales y preparación de modelos para impresión 3D.
+Si tenés una idea, la podemos hacer realidad 😊
 </div>
 </section>
 
 
-<!-- SECCIÓN MODELOS FAVORITOS -->
-<h2 class="titulo">Mis modelos favoritos</h2>
+<h2 class="section-title">Mis modelos favoritos</h2>
 
 
-<div class="contenedor-gif">
-<a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank">
-<video autoplay loop muted playsinline>
-<source src="imagenes/rickpanchoo.mp4" type="video/mp4" />
-</video>
-</a>
+<div class="models">
+
+
+<div class="model-card">
+<video src="videos/rickpanchoo.mp4" autoplay loop muted onclick="window.open('https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure')"></video>
+<a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure">Dr Hot Dog Multiversal</a>
 </div>
 
 
-<div class="contenedor-gif">
-<a href="https://cults3d.com/:3670527" target="_blank">
-<video autoplay loop muted playsinline>
-<source src="imagenes/GATTTTTT.mp4" type="video/mp4" />
-</video>
-</a>
+<div class="model-card">
+<video src="videos/GATTTTTT.mp4" autoplay loop muted onclick="window.open('https://cults3d.com/:3670527')"></video>
+<a href="https://cults3d.com/:3670527">Gato Multiversal</a>
+</div>
 </div>
 
 
-<!-- BOTONES DE CONTACTO -->
-<h2 class="titulo">Contactos</h2>
-<div class="botonera">
-<div id="btnWhatsApp" class="boton boton-whatsapp">WhatsApp – Consultas rápidas</div>
-<div id="btnTikTok" class="boton boton-tiktok">TikTok – Mirá mis creaciones</div>
-<div id="btnCults" class="boton boton-cults">Cults3D – Mis modelos</div>
-<div id="btnEmail" class="boton boton-email">Email – Consultas personalizadas</div>
+<h2 class="section-title">Contacto</h2>
+
+
+<div class="contact-container">
+<div class="bubble" onclick="window.open('https://wa.me/5491157233630')">WhatsApp • Cotizá tu pieza</div>
+<div class="bubble tiktok" onclick="window.open('https://www.tiktok.com/')">TikTok • Mirá mis creaciones</div>
+<div class="bubble cults" onclick="window.open('https://cults3d.com/@Mauo')">Cults3D • Mis modelos</div>
+<div class="bubble email" onclick="window.location='mailto:frankgg381@gmail.com'">Email • Consultas personalizadas</div>
 </div>
 
 
-<!-- BURBUJA GIGANTE FLOTANTE -->
-<div class="burbuja-logo">
-<img src="imagenes/logo.jpg" alt="Logo Mauo3D" />
-</div>
+<footer>© 2025 Mauo3D</footer>
 
 
-<script src="script.js"></script>
 </body>
 </html>
