@@ -4,88 +4,114 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mauo3D</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-font-family: 'Poppins', sans-serif;
-background: #0f0f0f;
-color:white;
-overflow-x:hidden;
+  font-family: Arial, sans-serif;
+  background: #1a1a1a; /* gris oscuro profesional */
+  color: white;
+  overflow-x: hidden;
+  text-align: center;
+  padding-top: 40px;
 }
 
-
-/* HERO */
-.hero {
-display:flex;
-justify-content:center;
-align-items:center;
-padding:60px 20px;
-gap:40px;
-flex-wrap:wrap;
-text-align:left;
+/* LOGO */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-
-.hero-logo {
-width: 30vw;
-max-width: 180px;
-aspect-ratio: 1/1;
-border-radius: 50%;
-object-fit: cover;
-animation: pulse 3s infinite ease-in-out;
-box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
 }
-
 
 @keyframes pulse {
-0% { transform:scale(1); }
-50% { transform:scale(1.06); }
-100% { transform:scale(1); }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
 
-
-.bio {
-max-width:420px;
-font-size:1.15rem;
-line-height:1.6;
+/* TEXTO MAUO3D */
+#titulo-animado {
+  display: inline-block;
+  font-size: 38px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  animation: pulse 2.5s infinite;
 }
 
-
-/* <h2 style="margin-top:40px; text-align:center; font-size:1.6rem;">Mis modelos favoritos, espero te gusten 😊</h2>
-
-
-<!-- MODELOS --> FAVORITOS */
-.section-title {
-text-align:center;
-font-size:1.8rem;
-margin-top:40px;
-margin-bottom:20px;
-font-weight:600;
+#titulo-animado span {
+  opacity: 0;
+  display: inline-block;
+  animation: aparecerLetra 1s forwards;
 }
 
-
-.models {
-display:flex;
-flex-direction:column;
-gap:25px;
-width:90%;
-max-width:700px;
-margin:auto;
+@keyframes aparecerLetra {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
-
-.model-card {
-background: #0f0f0f;
-padding:20px;
-border-radius:18px;
-box-shadow:0 0 10px rgba(255,255,255,0.05);
-display:flex;
-align-items:center;
-gap:20px;
+/* TITULO DE LOS MODELOS */
+h2 {
+  margin-top: 50px;
+  font-size: 26px;
+  text-shadow: 0px 0px 10px #000;
 }
 
+/* GIF */
+.gif-section {
+  margin-top: 20px;
+}
 
-.model-card video {
+.gif-section img {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px black;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGO + TITULO -->
+<div class="logo-container">
+  <img src="imagenes/logo.jpg" class="logo" alt="Logo">
+
+  <h1 id="titulo-animado"></h1>
+</div>
+
+<!-- TITULO SOBRE EL GIF -->
+<h2>Mis modelos favoritos, espero te gusten</h2>
+
+<!-- SECCIÓN DEL GIF -->
+<div class="gif-section">
+  <img src="imagenes/gif.gif" alt="GIF de modelos 3D">
+</div>
+
+<script>
+// Texto que aparece letra por letra
+const texto = "Mauo3D";
+const titulo = document.getElementById("titulo-animado");
+
+texto.split("").forEach((letra, i) => {
+  const span = document.createElement("span");
+  span.textContent = letra;
+
+  // Delay aleatorio para efecto random
+  span.style.animationDelay = (Math.random() * 1 + i * 0.1) + "s";
+
+  titulo.appendChild(span);
+});
+</script>
+
+</body>
+</html>
