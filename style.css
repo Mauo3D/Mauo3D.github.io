@@ -1,127 +1,66 @@
-/* RESETEO */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: #111;
-    color: #fff;
-    font-family: Arial, sans-serif;
-}
-
-/* --- SECCIÓN HERO (LOGO + BIO) --- */
-.hero {
+/* CONTENEDOR PRINCIPAL */
+.hero-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    padding: 40px;
+    padding: 40px 20px;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-/* LOGO A LA IZQUIERDA */
-.hero-logo img {
-    width: 280px;
-    height: 280px;
+/* LOGO - BURBUJA FLOTANTE */
+.hero-logo {
+    width: 45vw;                   /* un poco más de la mitad */
+    max-width: 300px;              /* límite para que no sea gigante */
+    aspect-ratio: 1/1;
     border-radius: 50%;
     object-fit: cover;
+    animation: pulse 3s infinite ease-in-out;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
 }
 
-/* BIO A LA DERECHA */
-.hero-bio {
-    max-width: 450px;
-    font-size: 20px;
-    line-height: 1.4;
+/* ANIMACIÓN DE BURBUJA */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
 }
 
-.hero-bio h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
+/* BIOGRAFÍA */
+.hero-text {
+    max-width: 400px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: left;
 }
 
-/* TITULOS */
-.titulo {
-    text-align: center;
-    font-size: 26px;
-    margin: 40px 0 15px;
-}
-
-/* VIDEOS TIPO GIF */
-.contenedor-gif {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 25px;
-}
-
-.contenedor-gif video {
-    width: 300px;
-    border-radius: 12px;
-}
-
-/* BOTONES CONTACTO */
-.botonera {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-    max-width: 450px;
-    margin: auto;
-}
-
-.boton {
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.boton-whatsapp { background: #25D366; }
-.boton-tiktok { background: #000; color: #fff; }
-.boton-cults { background: #6C3BFF; }
-.boton-email { background: #333; }
-
-/* BURBUJA LOGO FLOTANTE (más chica) */
-.burbuja-logo img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    animation: flotar 3s ease-in-out infinite;
-}
-
-@keyframes flotar {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-/* --- RESPONSIVE MODO CELULAR --- */
+/* RESPONSIVE PARA CELULAR */
 @media (max-width: 768px) {
-
-    .hero {
+    .hero-section {
         flex-direction: column;
         text-align: center;
-        padding: 20px;
     }
 
-    .hero-logo img {
-        width: 180px;
-        height: 180px;
+    .hero-logo {
+        width: 55vw;
+        max-width: 220px;
     }
 
-    .hero-bio {
-        font-size: 18px;
-        max-width: 90%;
-    }
-
-    .burbuja-logo img {
-        width: 90px;
-        height: 90px;
-        right: 15px;
-        bottom: 15px;
+    .hero-text {
+        text-align: center;
+        font-size: 1rem;
     }
 }
+✅ Y tu HTML debería quedar así:
+html
+Copiar código
+<section class="hero-section">
+    <img src="imagenes/logo.jpg" alt="Logo Mauo3D" class="hero-logo">
+
+    <div class="hero-text">
+        Hola! Soy <b>Mauo3D</b>.  
+        Me dedico al diseño y creación de modelos 3D, figuras y esculturas.  
+        También hago trabajos a pedido, reparaciones digitales y preparación de modelos para impresión 3D.  
+        Si tenés una idea, la podemos hacer realidad 😊
+    </div>
+</section>
