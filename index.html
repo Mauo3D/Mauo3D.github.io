@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mauo3D</title>
 <link rel="icon" href="imagenes/logo.jpg">
-    
 
 <style>
+/* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
     font-family: Arial, sans-serif;
@@ -16,29 +16,37 @@ body {
     text-align:center;
 }
 
-/* LOGO PULSANDO */
+/* ---------- LOGO PULSANDO ---------- */
 #logo {
     width:150px;
     height:150px;
     border-radius:50%;
     margin-top:20px;
-    animation:pulse 2s infinite;
+    animation: pulse 2s infinite;
 }
 
-/* TÍTULO PULSANDO */
-.titulo {
-    font-size:2.5em;
-    font-weight:bold;
-    margin:15px 0;
-    animation:pulse 2s infinite;
-}
-}
-
-/* ---------- ANIMACIÓN ---------- */
+/* ---------- ANIMACIÓN PULSO ---------- */
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.06); }
     100% { transform: scale(1); }
+}
+
+/* ---------- BURBUJAS ---------- */
+.burbuja {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #6c5ce7;
+    animation: pulse-bubble 1.5s infinite;
+    margin: 10px;
+    display: inline-block;
+}
+
+@keyframes pulse-bubble {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
 }
 
 /* ---------- TÍTULO ---------- */
@@ -78,7 +86,6 @@ h2 {
     font-weight: bold;
 }
 
-/* Caja de video */
 .model-box {
     margin: 30px auto;
     width: 85%;
@@ -109,61 +116,30 @@ video {
     color: white;
 }
 
-/* Colores */
+/* Colores de botones */
 #btn-wsp { background: #25d366; color: #000; }
 #btn-tt { background: #444; }
 #btn-cults { background: #7d3cff; }
 #btn-mail { background: #d44848; }
 #btn-instagram { background: #e1306c; }
-    
+
 legend {
     font-size: 0.9rem;
     opacity: 0.8;
     margin-bottom: 18px;
 }
-    <style>
-    /* Logo que palpita */
-    .logo {
-        width: 150px; /* ajusta según tu logo */
-        animation: pulse 1s infinite;
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-    }
-
-    /* Burbujas que palpitán */
-    .burbuja {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: #6c5ce7; /* cambia el color */
-        animation: pulse-bubble 1.5s infinite;
-        margin: 10px;
-    }
-
-    @keyframes pulse-bubble {
-        0% { transform: scale(1); opacity: 0.7; }
-        50% { transform: scale(1.2); opacity: 1; }
-        100% { transform: scale(1); opacity: 0.7; }
-    }
-</style>
 </style>
 </head>
 
 <body>
-    <!-- Logo -->
-<img src="imagenes/logo.jpg" alt="Logo" class="logo">
-
-<!-- Burbujas -->
-<div class="burbuja"></div>
-<div class="burbuja"></div>
-<div class="burbuja"></div>
 
 <!-- LOGO -->
-<img id="logo" src="logo.jpg" alt="Mauo3D Logo">
+<img id="logo" src="imagenes/logo.jpg" alt="Mauo3D Logo">
+
+<!-- BURBUJAS -->
+<div class="burbuja"></div>
+<div class="burbuja"></div>
+<div class="burbuja"></div>
 
 <!-- TÍTULO -->
 <div id="titulo-principal">Mauo3D</div>
@@ -184,7 +160,6 @@ legend {
 <!-- SECCIÓN MODELOS FAVORITOS -->
 <h2>Mis modelos favoritos</h2>
 
-<!-- MODELO 1 -->
 <div class="model-box">
     <a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure">
         <video autoplay loop muted>
@@ -194,7 +169,6 @@ legend {
     <legend>Dr Hot Dog Multiversal — Ver en Cults3D</legend>
 </div>
 
-<!-- MODELO 2 -->
 <div class="model-box">
     <a href="https://cults3d.com/:3670527">
         <video autoplay loop muted>
@@ -206,7 +180,6 @@ legend {
 
 <!-- CONTACTOS -->
 <h2>Mis contactos</h2>
-
 <div class="contact-container">
 
     <a id="btn-wsp" class="contact-btn" href="https://wa.me/5491157233630">WhatsApp</a>
@@ -221,24 +194,9 @@ legend {
     <a id="btn-mail" class="contact-btn" href="mailto:frankgg381@gmail.com">Email</a>
     <legend>Consultas personalizadas</legend>
     
-    <a id="btn-instagram" class="contact-btn" href="https://www.instagram.com/l.mauo.l/?__pwa=1#">instagram</a>
-    <legend>seguime</legend>
-
-
-</a>
+    <a id="btn-instagram" class="contact-btn" href="https://www.instagram.com/l.mauo.l/?__pwa=1#">Instagram</a>
+    <legend>Seguime</legend>
 </div>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
