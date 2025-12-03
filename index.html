@@ -6,7 +6,6 @@
 <title>Mauo3D</title>
 
 <style>
-/* ---------- ESTILOS GENERALES ---------- */
 body {
     margin: 0;
     padding: 0;
@@ -16,54 +15,75 @@ body {
     text-align: center;
 }
 
-/* ---------- LOGO ---------- */
-#logo {
-    width: 180px;
-    margin-top: 25px;
-    animation: pulse 3s infinite;
-}
+/* Animación */
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.07); }
     100% { transform: scale(1); }
 }
 
-/* ---------- BIOGRAFÍA ---------- */
+/* Logo redondo */
+#logo {
+    width: 180px;
+    height: 180px;
+    margin-top: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: pulse 3s infinite;
+    border: 3px solid #555;
+    box-shadow: 0 0 15px #333;
+}
+
+/* Título grande */
+#main-title {
+    margin-top: 12px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    animation: pulse 2.4s infinite;
+}
+
+/* Bio */
 .bio {
     width: 80%;
     max-width: 600px;
-    margin: 20px auto 40px;
+    margin: 20px auto 35px;
     font-size: 1.2rem;
     line-height: 1.6;
 }
 
-/* ---------- TÍTULO MODELOS FAVORITOS ---------- */
+/* Título de modelos */
 h2 {
     margin-top: 40px;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: bold;
 }
 
-/* ---------- VIDEOS ---------- */
+/* Caja del modelo */
 .model-box {
     margin: 40px auto;
     width: 90%;
     max-width: 420px;
 }
+
+/* Video visible */
 video {
     width: 100%;
     border-radius: 14px;
+    background: #222;
+    box-shadow: 0 0 18px rgba(255,255,255,0.18);
+    filter: brightness(1.1) contrast(1.1);
+    cursor: pointer;
 }
 
-/* ---------- BOTONES DE CONTACTO ---------- */
+/* Botones */
 .contact-container {
     margin-top: 60px;
-    margin-bottom: 80px;
+    margin-bottom: 90px;
 }
 
 .contact-btn {
     display: block;
-    width: 200px;
+    width: 220px;
     margin: 12px auto;
     padding: 14px;
     border-radius: 28px;
@@ -74,13 +94,11 @@ video {
     color: #fff;
 }
 
-/* Colores */
 #btn-wsp { background: #25d366; color: #000; }
 #btn-tt { background: #444; }
 #btn-cults { background: #7d3cff; }
 #btn-mail { background: #d44848; }
 
-/* ---------- LEYENDAS ---------- */
 legend {
     font-size: 0.9rem;
     opacity: 0.8;
@@ -91,16 +109,18 @@ legend {
 
 <body>
 
-<!-- LOGO -->
+<!-- LOGO REDONDO -->
 <img id="logo" src="logo.jpg" alt="Mauo3D Logo">
+
+<!-- TÍTULO PRINCIPAL -->
+<h1 id="main-title">MAUO3D</h1>
 
 <!-- BIO -->
 <div class="bio">
-    <p>Hola! Soy <b>Mauo3D</b>. Me dedico a diseños y figuras 3D.  
-    Si tenés una idea, la podemos hacer realidad 😊</p>
+    <p>Diseño figuras y modelos 3D. Si tenés una idea, la hacemos realidad 😊</p>
 </div>
 
-<!-- CATÁLOGO DE WHATSAPP -->
+<!-- CATÁLOGO -->
 <a href="https://wa.me/c/5491157233630" class="contact-btn" style="background:#128c7e; width:260px;">
 🛒 Ver mi catálogo
 </a>
@@ -110,21 +130,25 @@ legend {
 
 <!-- MODELO 1 -->
 <div class="model-box">
-    <video autoplay loop muted>
-        <source src="rickpanchoo.mp4" type="video/mp4">
-    </video>
+    <a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank">
+        <video autoplay loop muted playsinline>
+            <source src="rickpanchoo.mp4" type="video/mp4">
+        </video>
+    </a>
     <legend>Dr Hot Dog Multiversal — Ver en Cults3D</legend>
 </div>
 
 <!-- MODELO 2 -->
 <div class="model-box">
-    <video autoplay loop muted>
-        <source src="GATTTTTT.mp4" type="video/mp4">
-    </video>
+    <a href="https://cults3d.com/:3670527" target="_blank">
+        <video autoplay loop muted playsinline>
+            <source src="GATTTTTT.mp4" type="video/mp4">
+        </video>
+    </a>
     <legend>Modelo Gatitos — Ver en Cults3D</legend>
 </div>
 
-<!-- BOTONES DE CONTACTO -->
+<!-- BOTONES -->
 <div class="contact-container">
 
     <a id="btn-wsp" class="contact-btn" href="https://wa.me/5491157233630">WhatsApp</a>
