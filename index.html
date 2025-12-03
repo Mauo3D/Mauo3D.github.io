@@ -1,185 +1,110 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mauo3D</title>
+}
 
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: radial-gradient(circle, #1a1a1a, #000);
-        font-family: Arial, sans-serif;
-        color: white;
-        text-align: center;
-    }
 
-    /* LOGO */
-    .logo-container {
-        margin-top: 25px;
-        animation: pulse 2.5s infinite ease-in-out;
-    }
-    .logo {
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid #666;
-        box-shadow: 0 0 20px rgba(255,255,255,0.15);
-    }
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.08); }
-        100% { transform: scale(1); }
-    }
+.contact-btn {
+width: 160px;
+margin: 15px auto 5px auto;
+padding: 14px;
+border-radius: 28px;
+font-size: 1.1rem;
+font-weight: bold;
+animation: pulse 2.5s infinite;
+text-decoration: none;
+display: block;
+}
 
-    /* TITULO */
-    h1 {
-        font-size: 2.3rem;
-        margin-top: 10px;
-        text-shadow: 0 0 12px rgba(255,255,255,0.4);
-    }
 
-    /* BIO */
-    .bio {
-        width: 90%;
-        max-width: 600px;
-        margin: 20px auto;
-        font-size: 1.15rem;
-        line-height: 1.6;
-        color: #e0e0e0;
-    }
+#btn-wsp { background: #25d366; color: #000; }
+#btn-tt { background: #444; color: #fff; }
+#btn-cults { background: #7d3cff; color: #fff; }
+#btn-mail { background: #d4d4d4; color: #000; }
 
-    /* BOTON CATALOGO */
-    .catalogo-btn {
-        display: inline-block;
-        padding: 14px 40px;
-        border-radius: 40px;
-        background: #25d366;
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-decoration: none;
-        color: black;
-        margin-top: 10px;
-        box-shadow: 0 0 12px rgba(0,255,60,0.4);
-    }
 
-    /* TITULO MODELOS */
-    .section-title {
-        font-size: 1.8rem;
-        margin: 45px 0 20px 0;
-    }
+.legend {
+font-size: 0.9rem;
+opacity: 0.8;
+margin-bottom: 15px;
+}
 
-    /* CONTENEDOR DE VIDEO */
-    .video-box {
-        width: 90%;
-        max-width: 420px;
-        background: #111;
-        padding: 15px;
-        border-radius: 18px;
-        margin: 20px auto;
-        box-shadow: 0 0 15px rgba(255,255,255,0.1);
-    }
-    video {
-        width: 100%;
-        border-radius: 16px;
-    }
 
-    /* BOTONES DE CONTACTO */
-    .contact-container {
-        margin-top: 50px;
-    }
-    .contact-btn {
-        display: block;
-        width: 75%;
-        max-width: 320px;
-        margin: 15px auto;
-        padding: 15px 0;
-        font-size: 1.2rem;
-        border-radius: 35px;
-        font-weight: bold;
-        color: white;
-        text-decoration: none;
-        animation: bubble 2s infinite;
-    }
-
-    @keyframes bubble {
-        0%,100% { transform: scale(1); }
-        50% { transform: scale(1.06); }
-    }
-
-    .whatsapp { background: #25D366; color: black; }
-    .tiktok   { background: #444; }
-    .cults    { background: #7a2ffb; }
-    .email    { background: #d9534f; }
+/* ========== BOTÓN SUBIR ========== */
+#top-btn {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background: #6aaaff;
+color: #000;
+padding: 10px 15px;
+border-radius: 10px;
+cursor: pointer;
+font-weight: bold;
+}
 </style>
-
 </head>
 <body>
 
-<!-- LOGO -->
-<div class="logo-container">
-    <img src="logo.jpg" class="logo">
-</div>
 
+<!-- LOGO -->
+<img id="logo" src="logo.jpg" alt="Logo Mauo3D" />
+
+
+<!-- TÍTULO -->
 <h1>Mauo3D</h1>
 
+
 <!-- BIO -->
-<p class="bio">
+<div id="bio">
 Hola! Soy Mauo3D. Me dedico al diseño y creación de modelos 3D, figuras y esculturas.
-También hago trabajos a pedido, reparaciones digitales y preparación de modelos para
-impresión 3D. Si tenés una idea, la podemos hacer realidad 😊
-</p>
-
-<!-- BOTON CATALOGO -->
-<a class="catalogo-btn" href="https://wa.me/c/5491157233630" target="_blank">
-🛒 Ver catálogo de WhatsApp
-</a>
-
-
-<!-- TÍTULO VIDEOS -->
-<h2 class="section-title">Mis modelos favoritos — espero te gusten 😊</h2>
-
-<!-- VIDEO 1 -->
-<div class="video-box">
-    <a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank">
-        <video autoplay loop muted playsinline>
-            <source src="rickpanchoo.mp4" type="video/mp4">
-        </video>
-    </a>
+También hago trabajos a pedido, reparaciones digitales y preparación de modelos para impresión 3D.
+Si tenés una idea, la podemos hacer realidad 😊
 </div>
 
-<!-- VIDEO 2 -->
-<div class="video-box">
-    <a href="https://cults3d.com/es/modelo-3d/arte/3670527" target="_blank">
-        <video autoplay loop muted playsinline>
-            <source src="GATTTTTT.mp4" type="video/mp4">
-        </video>
-    </a>
+
+<!-- BOTÓN CATÁLOGO -->
+<a id="catalogo" href="https://wa.me/c/5491157233630" target="_blank">📦 Ver Catálogo</a>
+
+
+<!-- TÍTULO DE MODELOS -->
+<div class="section-title">Mis modelos favoritos — ¡espero te gusten! 😊</div>
+
+
+<!-- MODELO 1 -->
+<div class="model-block">
+<video class="model-video" autoplay loop muted playsinline src="rickpanchoo.mp4"></video>
+<a class="model-link" href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank">Ver modelo en Cults (Dr Hot Dog)</a>
+</div>
+
+
+<!-- MODELO 2 -->
+<div class="model-block">
+<video class="model-video" autoplay loop muted playsinline src="GATTTTTT.mp4"></video>
+<a class="model-link" href="https://cults3d.com/:3670527" target="_blank">Ver modelo en Cults (Gatitos)</a>
 </div>
 
 
 <!-- CONTACTOS -->
-<div class="contact-container">
+<div class="contact-area">
+<a id="btn-wsp" class="contact-btn" href="https://wa.me/5491157233630" target="_blank">WhatsApp</a>
+<div class="legend">Cotizá tu pieza 3D · Hablemos de tu idea · Consultas rápidas</div>
 
-    <a class="contact-btn whatsapp" href="https://wa.me/5491157233630" target="_blank">
-        WhatsApp — Cotizá tu pieza 3D
-    </a>
 
-    <a class="contact-btn tiktok" href="https://www.tiktok.com/@tu_usuario" target="_blank">
-        TikTok — Mirá mis creaciones
-    </a>
+<a id="btn-tt" class="contact-btn" href="https://www.tiktok.com" target="_blank">TikTok</a>
+<div class="legend">Mirá mis creaciones en acción</div>
 
-    <a class="contact-btn cults" href="https://cults3d.com/@Mauo" target="_blank">
-        Cults3D — Mis modelos favoritos ❤️
-    </a>
 
-    <a class="contact-btn email" href="mailto:frankgg381@gmail.com">
-        Email — Consultas personalizadas
-    </a>
+<a id="btn-cults" class="contact-btn" href="https://cults3d.com/@Mauo" target="_blank">Cults3D</a>
+<div class="legend">Explorá mis modelos · Seguime</div>
 
+
+<a id="btn-mail" class="contact-btn" href="mailto:frankgg381@gmail.com">Email</a>
+<div class="legend">Consultas personalizadas</div>
 </div>
+
+
+<!-- VOLVER ARRIBA -->
+<div id="top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'});">↑ Arriba</div>
+
 
 </body>
 </html>
