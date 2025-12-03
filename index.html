@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mauo3D</title>
 <link rel="icon" href="imagenes/logo.jpg">
+    
 
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -120,10 +121,46 @@ legend {
     opacity: 0.8;
     margin-bottom: 18px;
 }
+    <style>
+    /* Logo que palpita */
+    .logo {
+        width: 150px; /* ajusta según tu logo */
+        animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    /* Burbujas que palpitán */
+    .burbuja {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #6c5ce7; /* cambia el color */
+        animation: pulse-bubble 1.5s infinite;
+        margin: 10px;
+    }
+
+    @keyframes pulse-bubble {
+        0% { transform: scale(1); opacity: 0.7; }
+        50% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); opacity: 0.7; }
+    }
+</style>
 </style>
 </head>
 
 <body>
+    <!-- Logo -->
+<img src="imagenes/logo.jpg" alt="Logo" class="logo">
+
+<!-- Burbujas -->
+<div class="burbuja"></div>
+<div class="burbuja"></div>
+<div class="burbuja"></div>
 
 <!-- LOGO -->
 <img id="logo" src="logo.jpg" alt="Mauo3D Logo">
@@ -193,6 +230,7 @@ legend {
 
 </body>
 </html>
+
 
 
 
