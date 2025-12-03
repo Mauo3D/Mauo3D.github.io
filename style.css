@@ -86,24 +86,7 @@ video {
 .tiktok { background: #ff0050; }
 .cults { background: #3a86ff; }
 .mail { background: #777; }
-.btn-instagram2 {
-    display: block;
-    margin: 10px auto;
-    padding: 12px 20px;
-    font-size: 18px;
-    color: white;
-    text-align: center;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
 
-    background: linear-gradient(45deg, 
-        #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-}
-
-.btn-instagram2:hover {
-    opacity: 0.8;
-}
 
 /* ANIMACIONES */
 @keyframes pulse {
