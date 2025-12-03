@@ -4,157 +4,175 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mauo3D</title>
-<link rel="icon" href="imagenes/logo.jpg">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+/* ---------- ESTILOS GENERALES ---------- */
 body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: white;
     font-family: Arial, sans-serif;
-    background:#000;
-    color:white;
-    text-align:center;
+    text-align: center;
 }
 
-/* LOGO PULSANDO */
+/* ---------- LOGO ---------- */
 #logo {
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    margin-top:20px;
-    animation:pulse 2s infinite;
+    width: 170px;
+    margin-top: 25px;
+    border-radius: 50%;
+    animation: pulse 3s infinite;
 }
 
-/* TÍTULO PULSANDO */
-.titulo {
-    font-size:2.5em;
-    font-weight:bold;
-    margin:15px 0;
-    animation:pulse 2s infinite;
-}
-
+/* ---------- ANIMACIÓN ---------- */
 @keyframes pulse {
-    0% { transform:scale(1); }
-    50% { transform:scale(1.08); }
-    100% { transform:scale(1); }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
 }
 
-/* BIO */
+/* ---------- TÍTULO ---------- */
+#titulo-principal {
+    font-size: 2.2rem;
+    margin-top: 10px;
+    font-weight: bold;
+    animation: pulse 3s infinite;
+}
+
+/* ---------- BIO ---------- */
 .bio {
-    max-width:330px;
-    margin:10px auto 25px auto;
-    font-size:1.1em;
-    opacity:0.85;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
 
-/* CATÁLOGO */
-.catalogo {
-    margin-top:25px;
+/* ---------- CATÁLOGO ---------- */
+.catalogo-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #1bb94c;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-decoration: none;
+    border-radius: 40px;
+    animation: pulse 2.7s infinite;
 }
 
-.catalogo h2 {
-    font-size:1.8em;
-    margin-bottom:20px;
+/* ---------- SECCIÓN MODELOS FAVORITOS ---------- */
+h2 {
+    margin-top: 45px;
+    font-size: 1.9rem;
+    font-weight: bold;
 }
 
-.video-box {
-    margin-bottom:35px;
+/* Caja de video */
+.model-box {
+    margin: 30px auto;
+    width: 85%;
+    max-width: 350px;
 }
 
 video {
-    width:85%;
-    border-radius:15px;
+    width: 100%;
+    border-radius: 14px;
 }
 
-/* BOTONES BURBUJA */
-.burbujas {
-    margin-top:40px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
-    padding-bottom:40px;
+/* ---------- CONTACTOS ---------- */
+.contact-container {
+    margin-top: 60px;
+    margin-bottom: 70px;
 }
 
-.boton {
-    background:#222;
-    padding:15px 25px;
-    border-radius:50px;
-    width:260px;
-    font-size:1.2em;
-    text-decoration:none;
-    color:white;
-    animation:float 3s infinite;
-    border:1px solid #444;
+.contact-btn {
+    display: block;
+    width: 200px;
+    padding: 14px;
+    margin: 14px auto;
+    border-radius: 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    animation: pulse 2.5s infinite;
+    color: white;
 }
 
-@keyframes float {
-    0% { transform:translateY(0px); }
-    50% { transform:translateY(-6px); }
-    100% { transform:translateY(0px); }
-}
+/* Colores */
+#btn-wsp { background: #25d366; color: #000; }
+#btn-tt { background: #444; }
+#btn-cults { background: #7d3cff; }
+#btn-mail { background: #d44848; }
 
+legend {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 18px;
+}
 </style>
 </head>
+
 <body>
 
 <!-- LOGO -->
-<img id="logo" src="imagenes/logo.jpg" alt="Mauo3D Logo">
+<img id="logo" src="logo.jpg" alt="Mauo3D Logo">
 
 <!-- TÍTULO -->
-<div class="titulo">Mauo3D</div>
+<div id="titulo-principal">Mauo3D</div>
 
 <!-- BIO -->
 <div class="bio">
-    Modelos 3D, figuras, ideas y diseños únicos.  
-    Creación, impresión y retoques personalizados.
+    Creo figuras y diseños 3D.  
+    Si tenés una idea, la hacemos realidad 😊
 </div>
 
 <!-- CATÁLOGO -->
-<div class="catalogo">
-    <h2>Catálogo</h2>
-
-    <!-- MODELO 1 -->
-    <div class="video-box">
-        <a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure" target="_blank">
-            <video autoplay loop muted playsinline>
-                <source src="imagenes/rickpanchoo.mp4" type="video/mp4">
-            </video>
-        </a>
-    </div>
-
-    <!-- MODELO 2 -->
-    <div class="video-box">
-        <a href="https://cults3d.com/:3670527" target="_blank">
-            <video autoplay loop muted playsinline>
-                <source src="imagenes/GATTTTTT.mp4" type="video/mp4">
-            </video>
-        </a>
-    </div>
-
+<div style="margin: 25px 0;">
+    <a href="https://wa.me/c/5491157233630" class="catalogo-btn">
+        🛒 Ver mi catálogo
+    </a>
 </div>
 
-<!-- BURBUJAS CONTACTO -->
-<div class="burbujas">
+<!-- SECCIÓN MODELOS FAVORITOS -->
+<h2>Mis modelos favoritos</h2>
 
-    <a class="boton" href="https://wa.me/5491157233630" target="_blank">
-        WhatsApp<br>
-        Cotizá tu pieza 3D • Consultas rápidas
+<!-- MODELO 1 -->
+<div class="model-box">
+    <a href="https://cults3d.com/es/modelo-3d/arte/dr-hot-dog-multiversal-scientist-3d-figure">
+        <video autoplay loop muted>
+            <source src="rickpanchoo.mp4" type="video/mp4">
+        </video>
     </a>
+    <legend>Dr Hot Dog Multiversal — Ver en Cults3D</legend>
+</div>
 
-    <a class="boton" href="https://www.tiktok.com/@mauo3d" target="_blank">
-        TikTok<br>
-        Mirá mis creaciones en acción
+<!-- MODELO 2 -->
+<div class="model-box">
+    <a href="https://cults3d.com/:3670527">
+        <video autoplay loop muted>
+            <source src="GATTTTTT.mp4" type="video/mp4">
+        </video>
     </a>
+    <legend>Modelo Gatitos — Ver en Cults3D</legend>
+</div>
 
-    <a class="boton" href="https://cults3d.com/@Mauo" target="_blank">
-        Cults3D<br>
-        Mis modelos favoritos
-    </a>
+<!-- CONTACTOS -->
+<h2>Mis contactos</h2>
 
-    <a class="boton" href="mailto:frankgg381@gmail.com">
-        Email<br>
-        Consultas personalizadas
-    </a>
+<div class="contact-container">
+
+    <a id="btn-wsp" class="contact-btn" href="https://wa.me/5491157233630">WhatsApp</a>
+    <legend>Cotizá tu pieza 3D — Consultas rápidas</legend>
+
+    <a id="btn-tt" class="contact-btn" href="https://www.tiktok.com/@mauo3d">TikTok</a>
+    <legend>Mirá mis creaciones</legend>
+
+    <a id="btn-cults" class="contact-btn" href="https://cults3d.com/@Mauo">Cults3D</a>
+    <legend>Explorá mis modelos</legend>
+
+    <a id="btn-mail" class="contact-btn" href="mailto:frankgg381@gmail.com">Email</a>
+    <legend>Consultas personalizadas</legend>
 
 </div>
 
